@@ -7,11 +7,9 @@
 
 % Binarization threshold: MAX(Constant(124), Local(mean+3*sigma))
 binData = zeros(imageSizeX-192,imageSizeY-192,imageSizeZ);
-denoiseData = zeros(imageSizeX-192,imageSizeY-192,imageSizeZ);
 for t = 1:imageSizeZ
     for j = 1:64:(imageSizeY-192)-64*2
         for i = 1:64:(imageSizeX-192)-64*2
-            %denoise_data = conv2(squeeze(data(:,:,t)), ones(3)/9, 'same');
             ROI = squeeze(data(i:i+192,j:j+192,t));
             avrROI = round(mean(ROI,'all'));
             stdROI = round(std(single(ROI),1,'all'));
