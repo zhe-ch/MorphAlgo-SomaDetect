@@ -38,11 +38,11 @@ for i = 1:5
 end
 
 % Soma detection
-openResult = imopen(closeData, se);
+segResult = imopen(closeData, se);
 
 % Display detection result through iteration of slices
 for indexZ = 1:imageSizeZ
-    MZ = openResult(:,:,indexZ);
+    MZ = segResult(:,:,indexZ);
     imshow(MZ, []);
     pause(0.2);
 end
